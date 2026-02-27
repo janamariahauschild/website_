@@ -236,38 +236,41 @@
 
 			});
 
-		// Poptrox.
-			$main.poptrox({
-				baseZIndex: 20000,
-				caption: function($a) {
+// Poptrox.
+    $main.poptrox({
+        baseZIndex: 20000,
+        caption: function($a) {
 
-					var s = '';
+            var s = '';
 
-					$a.nextAll().each(function() {
-						s += this.outerHTML;
-					});
+            // Wir suchen die Texte im übergeordneten .thumb Article
+            $a.closest('.thumb').find('h2, p').each(function() {
+                s += this.outerHTML;
+            });
 
-					return s;
+            return s;
 
-				},
-				fadeSpeed: 300,
-				onPopupClose: function() { $body.removeClass('modal-active'); },
-				onPopupOpen: function() { $body.addClass('modal-active'); },
-				overlayOpacity: 0,
-				popupCloserText: '',
-				popupHeight: 150,
-				popupLoaderText: '',
-				popupSpeed: 300,
-				popupWidth: 150,
-				selector: '.thumb > a.image',
-				usePopupCaption: true,
-				usePopupCloser: true,
-				usePopupDefaultStyling: false,
-				usePopupForceClose: true,
-				usePopupLoader: true,
-				usePopupNav: true,
-				windowMargin: 50
-			});
+        },
+        fadeSpeed: 300,
+        onPopupClose: function() { $body.removeClass('modal-active'); },
+        onPopupOpen: function() { $body.addClass('modal-active'); },
+        overlayOpacity: 0,
+        popupCloserText: '',
+        popupHeight: 150,
+        popupLoaderText: '',
+        popupSpeed: 300,
+        popupWidth: 150,
+        // GEÄNDERT: Sucht jetzt nach allen .image Links innerhalb von .thumb, 
+        // egal ob sie direkt darin liegen oder in einem Unter-Div (display:none)
+        selector: '.thumb a.image', 
+        usePopupCaption: true,
+        usePopupCloser: true,
+        usePopupDefaultStyling: false,
+        usePopupForceClose: true,
+        usePopupLoader: true,
+        usePopupNav: true,
+        windowMargin: 50
+    });
 
 			// Hack: Set margins to 0 when 'xsmall' activates.
 				breakpoints.on('<=xsmall', function() {
