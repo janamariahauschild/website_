@@ -262,7 +262,7 @@
         popupWidth: 150,
         // GEÄNDERT: Sucht jetzt nach allen .image Links innerhalb von .thumb, 
         // egal ob sie direkt darin liegen oder in einem Unter-Div (display:none)
-        selector: '.thumb a.image', 
+        selector: 'a.image', 
         usePopupCaption: true,
         usePopupCloser: true,
         usePopupDefaultStyling: false,
@@ -282,3 +282,4 @@
 				});
 
 })(jQuery);
+
