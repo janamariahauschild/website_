@@ -262,7 +262,7 @@
         popupWidth: 150,
         // GEÄNDERT: Sucht jetzt nach allen .image Links innerhalb von .thumb, 
         // egal ob sie direkt darin liegen oder in einem Unter-Div (display:none)
-        selector: 'a.image', 
+        selector:'.thumb a.image', 
         usePopupCaption: true,
         usePopupCloser: true,
         usePopupDefaultStyling: false,
@@ -270,6 +270,11 @@
         usePopupLoader: true,
         usePopupNav: true,
         windowMargin: 50
+		usePopupDefaultStyling: false,
+    	usePopupNav: true,
+   		windowMargin: (breakpoints.active('<=xsmall') ? 0 : 50),
+    // Falls das Skript die Endungen ignoriert, erzwingen wir den Typ:
+    	type: 'image'
     });
 
 			// Hack: Set margins to 0 when 'xsmall' activates.
@@ -282,4 +287,5 @@
 				});
 
 })(jQuery);
+
 
